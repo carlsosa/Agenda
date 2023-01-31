@@ -5,6 +5,7 @@ namespace Agenda
     public partial class ScheduleMainForm : Form
     {
          public List<Person> persons  = new List<Person>();
+         public Person GetPersonSelected = new Person();
         public ScheduleMainForm()
         {
             
@@ -55,7 +56,7 @@ namespace Agenda
         {
             var p_sel = persons.Where(x => x.Id == person.Id).FirstOrDefault();
             p_sel = person;
-            var result = persons.FirstOrDefault(p_sel) == person ? 1 : 0;
+            var result = p_sel == null? 0 : 1;
             fill();
             return result;
         }
@@ -87,7 +88,7 @@ namespace Agenda
         public void fill()
         {
             personBindingSource.Clear();
-            foreach (var item in persons)
+            foreach (var item in persons.OrderBy(x=> x.Id))
             {
                 personBindingSource.Add(item);
 
@@ -96,7 +97,11 @@ namespace Agenda
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            var sended = (DataGridView)sender;
+            GetPersonSelected = (Person)sended.CurrentRow.DataBoundItem;
+            EditForm editForm =  new EditForm(this);
+            editForm.Show();
+
         }
 
 
