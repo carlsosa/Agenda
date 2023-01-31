@@ -21,7 +21,7 @@ namespace Agenda
             person.Email = "example@example.com";
             persons.Add(person);
              person = new Person();
-            person.Id = 1;
+            person.Id = 2;
             person.FirstName = "Martin";
             person.LastName = "Viena";
             person.Created = DateTime.Now;
@@ -35,17 +35,63 @@ namespace Agenda
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            fill();
+        }
+        public int saveContact(Person person)
+        {
+            var list = persons.Where(x => x.PhoneNumber == person.PhoneNumber).ToList();
+            var p_id = persons.OrderByDescending(u => u.Id).FirstOrDefault();
+            if (list.Count() == 0)
+            {
+                person.Id = p_id == null ? 0 : p_id.Id + 1;
+                persons.Add(person);
+                fill();
+                return 1;
+            }
+            return 0;
+            
+        }
+        public int editPerson(Person person)
+        {
+            var p_sel = persons.Where(x => x.Id == person.Id).FirstOrDefault();
+            p_sel = person;
+            var result = persons.FirstOrDefault(p_sel) == person ? 1 : 0;
+            fill();
+            return result;
+        }
+        public List<Person> searchPerson(String criteria, string keyWord)
+        {
+            var p_sels = new List<Person>();
+            switch (criteria)
+            {
+                case "Nombre":
+                     p_sels = persons.Where(x => x.FirstName == keyWord).ToList();
+                    break;
+                case "Apellido":
+                     p_sels = persons.Where(x => x.LastName == keyWord).ToList();
+                    break;
+                case "Telefono":
+                     p_sels = persons.Where(x => x.PhoneNumber == keyWord).ToList();
+                    break;
+                case "Correo": 
+                    p_sels = persons.Where(x => x.Email == keyWord).ToList();
+                    break;
+                case "Instagram":
+                    p_sels = persons.Where(x => x.Instagram == keyWord).ToList();
+                    break;
+                    default: throw new ArgumentException();
+            }
+            
+            return p_sels;
+        }
+        public void fill()
+        {
+            personBindingSource.Clear();
             foreach (var item in persons)
             {
                 personBindingSource.Add(item);
 
             }
-        }
-        public void Form1_Reload(Person person)
-        {
-
-            personBindingSource.Add(person);
-            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

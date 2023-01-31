@@ -34,8 +34,13 @@ namespace Agenda
             person.LastName = ln;
             person.Instagram = insta;
             person.Created = DateTime.Now;
-            this.parent.Form1_Reload(person);
-            this.Close();
+           var result = this.parent.saveContact(person);
+            if(result == 0) { MessageBox.Show("Contacto ya existe"); } else
+            {
+                MessageBox.Show("Guardado exitosamente");
+                this.Close();
+            }
+           
             
         }
 
