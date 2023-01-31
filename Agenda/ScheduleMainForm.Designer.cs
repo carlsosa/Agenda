@@ -89,6 +89,7 @@
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
             this.consultarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.consultarToolStripMenuItem.Text = "Consultar";
+            this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -101,7 +102,7 @@
             // quienMeHizoToolStripMenuItem
             // 
             this.quienMeHizoToolStripMenuItem.Name = "quienMeHizoToolStripMenuItem";
-            this.quienMeHizoToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.quienMeHizoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.quienMeHizoToolStripMenuItem.Text = "Quien me hizo.";
             this.quienMeHizoToolStripMenuItem.Click += new System.EventHandler(this.quienMeHizoToolStripMenuItem_Click);
             // 

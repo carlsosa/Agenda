@@ -1,3 +1,20 @@
-{
- 
-}
+[
+  {
+    "Id": 1,
+    "FirstName": "Marcus",
+    "LastName": "Valdan",
+    "PhoneNumber": "8092224455",
+    "Email": "example@example.com",
+    "Instagram": "@insta",
+    "Created": "2023-01-31T11:49:18.9923048-04:00"
+  },
+  {
+    "Id": 2,
+    "FirstName": "Martin",
+    "LastName": "Viena",
+    "PhoneNumber": "9980922244556",
+    "Email": "example2@example.com",
+    "Instagram": "@insta2021u1u8u34y3y4y1u3iu1",
+    "Created": "2023-01-31T11:49:18.9954244-04:00"
+  }
+]

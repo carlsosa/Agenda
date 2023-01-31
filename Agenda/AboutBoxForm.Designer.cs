@@ -140,7 +140,9 @@
             this.textBoxDescription.Size = new System.Drawing.Size(451, 243);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "Proyecto de Programacion I";
+            this.textBoxDescription.Text = "Proyecto de Programacion I, Haga click sobre celda para modidicar un contacto, y " +
+    "en menu acciones para agregar un contacto y consultar.";
+            this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
             // okButton
             // 
@@ -154,7 +156,7 @@
             this.okButton.Text = "&OK";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // AboutBox1
+            // AboutBoxForm
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -165,7 +167,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AboutBox1";
+            this.Name = "AboutBoxForm";
             this.Padding = new System.Windows.Forms.Padding(15, 17, 15, 17);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

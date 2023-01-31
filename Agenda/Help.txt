@@ -1,0 +1,23 @@
+﻿  var person = new Person();
+            person.Id = 1;
+            person.FirstName = "Marcus";
+            person.LastName = "Valdan";
+            person.Created = DateTime.Now;
+            person.Instagram = "@insta";
+            person.PhoneNumber = "8092224455";
+            person.Email = "example@example.com";
+            persons.Add(person);
+            person = new Person();
+            person.Id = 2;
+            person.FirstName = "Martin";
+            person.LastName = "Viena";
+            person.Created = DateTime.Now;
+            person.Instagram = "@insta2021u1u8u34y3y4y1u3iu1";
+            person.PhoneNumber = "80922244556";
+            person.Email = "example2@example.com";
+            persons.Add(person); */
+
+            //  using(StreamWriter sw = new StreamWriter("dataset.json"))
+           // {
+            //    sw.WriteLine(json_persons);
+           // }

@@ -1,4 +1,6 @@
+using Newtonsoft.Json;
 using System.Data;
+using System.Text.Json;
 
 namespace Agenda
 {
@@ -11,7 +13,6 @@ namespace Agenda
             
             InitializeComponent();
             dataList.Visible = true;
-            persons = new List<Person>();
             var person = new Person();
             person.Id = 1;
             person.FirstName = "Marcus";
@@ -21,7 +22,7 @@ namespace Agenda
             person.PhoneNumber = "8092224455";
             person.Email = "example@example.com";
             persons.Add(person);
-             person = new Person();
+            person = new Person();
             person.Id = 2;
             person.FirstName = "Martin";
             person.LastName = "Viena";
@@ -30,10 +31,9 @@ namespace Agenda
             person.PhoneNumber = "80922244556";
             person.Email = "example2@example.com";
             persons.Add(person);
-           
-
         }
 
+      
         private void Form1_Load(object sender, EventArgs e)
         {
             fill();
@@ -56,7 +56,7 @@ namespace Agenda
         {
             var p_sel = persons.Where(x => x.Id == person.Id).FirstOrDefault();
             p_sel = person;
-            var result = p_sel == null? 0 : 1;
+            var result = p_sel == null? 0 : 1;      
             fill();
             return result;
         }
@@ -66,19 +66,19 @@ namespace Agenda
             switch (criteria)
             {
                 case "Nombre":
-                     p_sels = persons.Where(x => x.FirstName == keyWord).ToList();
+                     p_sels = persons.Where(x => x.FirstName.Contains(keyWord)).ToList();
                     break;
                 case "Apellido":
-                     p_sels = persons.Where(x => x.LastName == keyWord).ToList();
+                     p_sels = persons.Where(x => x.LastName.Contains(keyWord)).ToList();
                     break;
                 case "Telefono":
-                     p_sels = persons.Where(x => x.PhoneNumber == keyWord).ToList();
+                     p_sels = persons.Where(x => x.PhoneNumber.Contains(keyWord)).ToList();
                     break;
                 case "Correo": 
-                    p_sels = persons.Where(x => x.Email == keyWord).ToList();
+                    p_sels = persons.Where(x => x.Email.Contains(keyWord)).ToList();
                     break;
                 case "Instagram":
-                    p_sels = persons.Where(x => x.Instagram == keyWord).ToList();
+                    p_sels = persons.Where(x => x.Instagram.Contains(keyWord)).ToList();
                     break;
                     default: throw new ArgumentException();
             }
@@ -130,6 +130,12 @@ namespace Agenda
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchForm searchForm = new SearchForm(this);
+            searchForm.Show();
         }
     }
 }
