@@ -48,12 +48,10 @@
             this.instagramDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -84,20 +82,20 @@
             // 
             this.agregarToolStripMenuItem.CheckOnClick = true;
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.agregarToolStripMenuItem.Text = "Agregar";
             this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.modificarToolStripMenuItem.Text = "Modificar";
             // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // ayudaToolStripMenuItem
@@ -111,7 +109,7 @@
             // quienMeHizoToolStripMenuItem
             // 
             this.quienMeHizoToolStripMenuItem.Name = "quienMeHizoToolStripMenuItem";
-            this.quienMeHizoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.quienMeHizoToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
             this.quienMeHizoToolStripMenuItem.Text = "Quien me hizo.";
             this.quienMeHizoToolStripMenuItem.Click += new System.EventHandler(this.quienMeHizoToolStripMenuItem_Click);
             // 
@@ -132,6 +130,7 @@
             // 
             // dataList
             // 
+            this.dataList.AccessibleName = "dataList";
             this.dataList.AllowUserToOrderColumns = true;
             this.dataList.AllowUserToResizeColumns = false;
             this.dataList.AllowUserToResizeRows = false;
@@ -217,11 +216,6 @@
             // 
             this.personBindingSource.DataSource = typeof(Agenda.Person);
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(Agenda.Person);
-            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -235,7 +229,7 @@
             this.label1.Text = "AgendaE!";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Form1
+            // ScheduleMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,14 +240,13 @@
             this.Controls.Add(this.dataList);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "ScheduleMainForm";
             this.Text = "AgendaE!";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,7 +264,6 @@
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem cerrarToolStripMenuItem;
         private DataGridView dataList;
-        private BindingSource bindingSource1;
         private BindingSource personBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;

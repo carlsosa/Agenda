@@ -4,11 +4,12 @@ namespace Agenda
 {
     public partial class ScheduleMainForm : Form
     {
-         List<Person> persons { get; set; }
-         DataTable data = new DataTable();
+         public List<Person> persons  = new List<Person>();
         public ScheduleMainForm()
         {
+            
             InitializeComponent();
+            dataList.Visible = true;
             persons = new List<Person>();
             var person = new Person();
             person.Id = 1;
@@ -40,6 +41,12 @@ namespace Agenda
 
             }
         }
+        public void Form1_Reload(Person person)
+        {
+
+            personBindingSource.Add(person);
+            
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -54,7 +61,7 @@ namespace Agenda
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddForm addForm = new AddForm();
+            AddForm addForm = new AddForm(this);
             addForm.Show();
         }
 
