@@ -80,7 +80,8 @@ namespace Agenda
                 case "Instagram":
                     p_sels = persons.Where(x => x.Instagram.Contains(keyWord)).ToList();
                     break;
-                    default: throw new ArgumentException();
+                    default: MessageBox.Show("Campo o entrada no valida");
+                    break;
             }
             
             return p_sels;

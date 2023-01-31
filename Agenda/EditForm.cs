@@ -12,11 +12,11 @@ namespace Agenda
 {
     public partial class EditForm : Form
     {
-        ScheduleMainForm parent = null;
-        Person GetSelectedPerson1 = null;
+        ScheduleMainForm? parent = null;
+        Person? GetSelectedPerson1 = null;
         public EditForm(Form parent_super)
         {
-            parent = parent_super as ScheduleMainForm;
+            parent =  parent_super as ScheduleMainForm;
             InitializeComponent();
             if (parent != null)
             {
