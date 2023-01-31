@@ -33,7 +33,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quienMeHizoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +71,6 @@
             // 
             this.accionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarToolStripMenuItem,
-            this.modificarToolStripMenuItem,
             this.consultarToolStripMenuItem});
             this.accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
             this.accionesToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
@@ -82,20 +80,14 @@
             // 
             this.agregarToolStripMenuItem.CheckOnClick = true;
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.agregarToolStripMenuItem.Text = "Agregar";
             this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
-            this.modificarToolStripMenuItem.Text = "Modificar";
             // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(189, 34);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // ayudaToolStripMenuItem
@@ -257,7 +249,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem accionesToolStripMenuItem;
         private ToolStripMenuItem agregarToolStripMenuItem;
-        private ToolStripMenuItem modificarToolStripMenuItem;
         private ToolStripMenuItem consultarToolStripMenuItem;
         private ToolStripMenuItem ayudaToolStripMenuItem;
         private ToolStripMenuItem quienMeHizoToolStripMenuItem;
