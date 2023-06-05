@@ -49,5 +49,19 @@ namespace Agenda
             this.Close();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var result = this.parent.deletePerson(GetSelectedPerson1);
+            if (result == 1)
+            {
+                MessageBox.Show("Modificado Exitosamente");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar");
+            }
+            this.Close();
+        }
     }
 }

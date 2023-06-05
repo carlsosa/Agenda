@@ -13,27 +13,10 @@ namespace Agenda
             
             InitializeComponent();
             dataList.Visible = true;
-            var person = new Person();
-            person.Id = 1;
-            person.FirstName = "Marcus";
-            person.LastName = "Valdan";
-            person.Created = DateTime.Now;
-            person.Instagram = "@insta";
-            person.PhoneNumber = "8092224455";
-            person.Email = "example@example.com";
-            persons.Add(person);
-            person = new Person();
-            person.Id = 2;
-            person.FirstName = "Martin";
-            person.LastName = "Viena";
-            person.Created = DateTime.Now;
-            person.Instagram = "@insta2021u1u8u34y3y4y1u3iu1";
-            person.PhoneNumber = "80922244556";
-            person.Email = "example2@example.com";
-            persons.Add(person);
+          
         }
 
-      
+
         private void Form1_Load(object sender, EventArgs e)
         {
             fill();
@@ -41,11 +24,11 @@ namespace Agenda
         public int saveContact(Person person)
         {
             var list = persons.Where(x => x.PhoneNumber == person.PhoneNumber).ToList();
-            var p_id = persons.OrderByDescending(u => u.Id).FirstOrDefault();
             if (list.Count() == 0)
             {
-                person.Id = p_id == null ? 0 : p_id.Id + 1;
-                persons.Add(person);
+                var context = new ScheduleContext();
+                context.Add(person);
+                context.SaveChanges();
                 fill();
                 return 1;
             }
@@ -54,10 +37,16 @@ namespace Agenda
         }
         public int editPerson(Person person)
         {
-            var p_sel = persons.Where(x => x.Id == person.Id).FirstOrDefault();
-            p_sel = person;
-            var result = p_sel == null? 0 : 1;      
-            fill();
+            var context = new ScheduleContext();
+            var p_sel = context.person.Where(x => x.Id == person.Id).FirstOrDefault();
+            var result = p_sel == null? 0 : 1;
+            if (result == 1)
+            {
+                p_sel = person;
+                context.SaveChanges();
+                fill();
+            }
+            
             return result;
         }
         public List<Person> searchPerson(String criteria, string keyWord)
@@ -86,14 +75,33 @@ namespace Agenda
             
             return p_sels;
         }
+
+        public int  deletePerson(Person? getSelectedPerson1)
+        {
+            var context = new ScheduleContext();
+            context.Remove(getSelectedPerson1);
+            context.SaveChanges();
+            var find = context.person.FirstOrDefault(x => x.Id == getSelectedPerson1.Id);
+            if(find == null)
+            {
+                fill();
+                return 1;
+            }
+            return 0;
+        }
+
         public void fill()
         {
+            var context = new ScheduleContext();
+            persons = context.person.ToList();
+            
             personBindingSource.Clear();
             foreach (var item in persons.OrderBy(x=> x.Id))
             {
                 personBindingSource.Add(item);
 
             }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -101,6 +109,7 @@ namespace Agenda
             var sended = (DataGridView)sender;
             GetPersonSelected = (Person)sended.CurrentRow.DataBoundItem;
             EditForm editForm =  new EditForm(this);
+            
             editForm.Show();
 
         }
@@ -137,6 +146,11 @@ namespace Agenda
         {
             SearchForm searchForm = new SearchForm(this);
             searchForm.Show();
+        }
+
+        private void personBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
